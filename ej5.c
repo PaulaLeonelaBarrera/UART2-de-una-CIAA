@@ -138,6 +138,16 @@ void ConfigurarInterrupcionUART2(void)
 }
 
 /* ───────────────────────────────────────── */
+/*    DESACTIVAR INTERRUPCIÓN UART2          */
+/* ───────────────────────────────────────── */
+void DesactivarInterrupcionErrorUART2(void)
+{
+    /* Limpio el bit 2 del IER → desactiva interrupción por error */
+    USB_UART->IER &= ~(1 << 2);
+}
+
+
+/* ───────────────────────────────────────── */
 /*              MAIN                         */
 /* ───────────────────────────────────────── */
 int main(void)
@@ -243,3 +253,4 @@ int main(void)
         }
     }
 }
+
